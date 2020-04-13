@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/import', 'ImportController@import');
+Route::get('/import/events', 'ImportController@importEvents');
+Route::get('/import/workers', 'ImportController@importWorkers');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'ImportController@showHome');
+Route::get('/all', 'ImportController@showAll');
+Route::get('/workers', 'ImportController@showWorkers');
+Route::get('/events', 'ImportController@showEvents');
+//Route::get('user/{id}', 'UserController@show');
