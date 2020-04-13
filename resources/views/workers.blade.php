@@ -8,7 +8,7 @@
         <input type="text" id ="lname" name ="lname"><br>
         <label for="workEmail">Email:</label><br>
         <input type="email" id ="workEmail" name ="workEmail"><br><br>
-        <button type="button"> Add New Worker </button>   
+        <button type="button"> Add Worker </button>   
     </form>
     <h1>Workers</h1>
     <table class="table table-bordered" id="table">
