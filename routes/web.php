@@ -23,3 +23,5 @@ Route::get('/all', 'ImportController@showAll');
 Route::get('/workers', 'ImportController@showWorkers');
 Route::get('/events', 'ImportController@showEvents');
 //Route::get('user/{id}', 'UserController@show');
+
+Route::get('/workers/input', 'WorkerController@show');
