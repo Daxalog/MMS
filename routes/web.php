@@ -23,3 +23,5 @@ Route::get('/events/input', 'EventController@showInput');
 
 Route::get('/workers', 'WorkerController@showInput');
 Route::get('/workers/input', 'WorkerController@show');
+
+Route::get('/organizers', 'EventOrganizersController@show');

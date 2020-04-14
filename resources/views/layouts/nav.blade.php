@@ -11,7 +11,10 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/events">Events</a>
-          </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/organizers">Event Organizers</a>
+        </li>
       </ul>
     </div>
   </nav>
