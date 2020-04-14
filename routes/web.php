@@ -20,6 +20,7 @@ Route::get('/', 'HomeController@show');
 
 Route::get('/events', 'EventController@show');
 Route::get('/events/input', 'EventController@showInput');
+Route::post('/eventAction', 'WorkerController@storeWorker');
 
 Route::get('/workers', 'WorkerController@showInput');
 Route::get('/workers/input', 'WorkerController@show');
