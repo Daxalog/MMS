@@ -10,6 +10,6 @@ class WorkerController extends Controller
     //
     public function show(){
         $workers = DB::table('workers')->get();
-        return view('inputworkers', ['workers'=> $workers]);
+        return view('input_workers', ['workers'=> $workers]);
     }
 }
