@@ -24,10 +24,10 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>{{$worker->ID}}</td>
-                <td>{{$worker->FirstName}}</td>
-                <td>{{$worker->LastName}}</td>
-                <td>{{$worker->Email}}</td>
+                <td>{{$worker->worker_id}}</td>
+                <td>{{$worker->worker_first_name}}</td>
+                <td>{{$worker->worker_last_name}}</td>
+                <td>{{$worker->worker_email}}</td>
                 <td></td>
                 <td></td>
                 <td></td>
