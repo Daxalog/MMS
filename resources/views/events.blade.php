@@ -12,9 +12,9 @@
         <tbody>
             @foreach ($events as $event)
             <tr>
-                <td>{{$event->ID}}</td>
-                <td>{{$event->Name}}</td>
-                <td>{{$event->Date}}</td>
+                <td>{{$event->event_id}}</td>
+                <td>{{$event->event_name}}</td>
+                <td>{{$event->event_date}}</td>
             </tr>  
             @endforeach
 

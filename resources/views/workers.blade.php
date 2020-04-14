@@ -13,20 +13,23 @@
     </form>
 
     <h1>Workers</h1>
+    <a href='/workers/input'>Add a worker</a>
     <table class="table table-bordered" id="table">
         <thead>
            <tr>
               <th>User ID</th>
               <th>First Name</th>
               <th>Last Name</th>
+              <th>Email</th>
            </tr>
         </thead>
         <tbody>
             @foreach ($workers as $worker)
             <tr>
-                <td>{{$worker->ID}}</td>
-                <td>{{$worker->FirstName}}</td>
-                <td>{{$worker->LastName}}</td>
+                <td>{{$worker->worker_id}}</td>
+                <td>{{$worker->worker_first_name}}</td>
+                <td>{{$worker->worker_last_name}}</td>
+                <td>{{$worker->worker_email}}</td>
             </tr>  
             @endforeach
 

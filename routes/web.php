@@ -17,12 +17,10 @@ Route::get('/import', 'ImportController@import');
 Route::get('/import/events', 'ImportController@importEvents');
 Route::get('/import/workers', 'ImportController@importWorkers');
 
-
 Route::get('/', 'ImportController@showHome');
 Route::get('/all', 'ImportController@showAll');
 Route::get('/workers', 'ImportController@showWorkers');
 Route::get('/events', 'ImportController@showEvents');
-//Route::get('user/{id}', 'UserController@show');
 
 Route::get('/workers/input', 'WorkerController@show');
 Route::get('/events/input', 'WorkerController@show');

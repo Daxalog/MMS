@@ -14,11 +14,10 @@ class CreateWorkersTable extends Migration
     public function up()
     {
         Schema::create('workers', function (Blueprint $table) {
-            $table->id('ID');
-            $table->string('FirstName');
-            $table->string('LastName');
-            $table->string('Email');
-            $table->timestamps();
+            $table->integer('worker_id')->autoIncrement();
+            $table->string('worker_first_name', 30);
+            $table->string('worker_last_name', 40);
+            $table->string('worker_email', 60);
         });
     }
 
