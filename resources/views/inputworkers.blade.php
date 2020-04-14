@@ -1,7 +1,20 @@
 @extends('layouts/layout')
 @section('content')
-    <h1>Workers</h1>
-    <a href='/workers/input'>Add a worker</a>
+    <h1>Workers Input</h1>
+    <br/>
+    <form>
+        <label>First Name</label>
+        <input type="text"/>
+        <br/>
+        <label>Last Name</label>
+        <input type="text"/>
+        <br/>
+        <label>Email</label>
+        <input type="text"/>
+        <br/>
+        <button>Add</button>
+    </form>
+    <br/>
     <table class="table table-bordered" id="table">
         <thead>
            <tr>

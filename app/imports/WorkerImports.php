@@ -2,21 +2,12 @@
 
 namespace App\Imports;
 
-use App\Event;
-//use Illuminate\Support\Facades\Hash;
-//use Illuminate\Support\Collection;
-//use Maatwebsite\Excel\Concerns\ToCollection;
-use Maatwebsite\Excel\Concerns\ToModel;
 use App\Worker;
+use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Facades\DB;
 
  class WorkerImports implements ToModel
 {
-    /**
-     * @param array $row
-     *
-     * @return Event|null
-     */
 
      public function model(array $row){
 
@@ -24,27 +15,22 @@ use Illuminate\Support\Facades\DB;
             return null;
         }
 
-         $workerId = $row[3];
-         $workerFirst = $row[4];
-         $workerLast = $row[5];
-         $workerEmail = $row[6];
+        $workerId = $row[3];
+        $workerFirst = $row[4];
+        $workerLast = $row[5];
+        $workerEmail = $row[6];
          
-         $workerSearch = DB::table('workers')->where('ID', $workerId)->first();
+        $workerSearch = DB::table('workers')->where('worker_id', $workerId)->first();
         if($workerSearch === null){
             return new Worker([
-                'ID' => $workerId,
-                'FirstName' => $workerFirst,
-                'LastName' => $workerLast,
-                'Email' => $workerEmail
+                'worker_id' => $workerId,
+                'worker_first_name' => $workerFirst,
+                'worker_last_name' => $workerLast,
+                'worker_email' => $workerEmail
              ]);
         }
         else {
             return null;
         }
-
-        
-
-         
-
      }
 }

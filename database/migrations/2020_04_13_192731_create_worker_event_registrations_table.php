@@ -22,7 +22,6 @@ class CreateWorkerEventRegistrationsTable extends Migration
             $table->string('worker_selection_status', 1)->nullable();
             $table->date('worker_event_registration_date');
             $table->boolean('worker_selection_communicated');
-
             $table->foreign('worker_event_registration_worker_id', 'worker_event_registration_worker_id_worker_id')->references('worker_id')->on('workers');
             $table->foreign('worker_event_registration_event_id', 'worker_event_registration_event_id_event_id')->references('event_id')->on('events');
         });

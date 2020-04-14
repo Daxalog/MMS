@@ -27,12 +27,12 @@ use Illuminate\Support\Facades\DB;
          $eventName = $row[1];
          $eventDate = Carbon::parse($row[2]);
 
-         $eventSearch = DB::table('events')->where('name', $eventName)->first();
+         $eventSearch = DB::table('events')->where('event_name', $eventName)->first();
 
          if($eventSearch === null){
             return new Event([
-                'Name' => $eventName,
-                'Date' => $eventDate
+                'event_name' => $eventName,
+                'event_date' => $eventDate
              ]);
          }
         else{
