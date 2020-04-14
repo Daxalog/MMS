@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/import', 'ImportController@import');
 Route::get('/import/events', 'ImportController@importEvents');
 Route::get('/import/workers', 'ImportController@importWorkers');
 
-Route::get('/', 'ImportController@showHome');
-Route::get('/workers', 'ImportController@showWorkers');
-Route::get('/events', 'ImportController@showEvents');
+Route::get('/', 'HomeController@show');
 
+Route::get('/events', 'EventController@show');
+Route::get('/events/input', 'EventController@showInput');
+
+Route::get('/workers', 'WorkerController@showInput');
 Route::get('/workers/input', 'WorkerController@show');
-Route::post('/workerAction', 'WorkerController@storeWorker');
 
-Route::get('/events/input', 'WorkerController@show');
+Route::get('/organizers', 'EventOrganizersController@show');

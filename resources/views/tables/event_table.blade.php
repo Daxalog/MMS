@@ -2,8 +2,9 @@
     <thead>
        <tr>
           <th>ID</th>
-          <th>Event Name</th>
-          <th>Event Date</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Track</th>
        </tr>
     </thead>
     <tbody>
@@ -11,6 +12,7 @@
         <tr>
             <td>{{$event->event_id}}</td>
             <td>{{$event->event_name}}</td>
+            <td>{{$event->event_date}}</td>
             <td>{{$event->event_date}}</td>
         </tr>  
         @endforeach
