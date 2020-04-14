@@ -14,13 +14,11 @@ class CreateEventOrganizersTable extends Migration
     public function up()
     {
         Schema::create('event_organizers', function (Blueprint $table) {
-            $table->integer('event_organizer_id');
+            $table->integer('event_organizer_id')->autoIncrement();
             $table->string('organizer_name', 60);
             $table->string('organizer_contact_first_name', 30);
             $table->string('organizer_contact_last_name', 40);
             $table->string('organizer_contact_phone_number', 16);
-
-            $table->primary('event_organizer_id');
         });
     }
 

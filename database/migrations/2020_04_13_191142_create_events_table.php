@@ -14,13 +14,12 @@ class CreateEventsTable extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->integer('event_id');
+            $table->integer('event_id')->autoIncrement();
             $table->integer('organizer_id_for_event');
             $table->string('event_name', 75);
             $table->date('event_date');
             $table->string('event_track', 45);
 
-            $table->primary('event_id');
             $table->foreign('organizer_id_for_event', 'organizer_id_for_event_event_organizer_id')->references('event_organizer_id')->on('event_organizers');
         });
     }

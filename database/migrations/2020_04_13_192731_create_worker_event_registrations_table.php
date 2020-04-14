@@ -14,7 +14,7 @@ class CreateWorkerEventRegistrationsTable extends Migration
     public function up()
     {
         Schema::create('worker_event_registrations', function (Blueprint $table) {
-            $table->integer('worker_event_registration_id');
+            $table->integer('worker_event_registration_id')->autoIncrement();
             $table->integer('worker_event_registration_worker_id');
             $table->integer('worker_event_registration_event_id');
             $table->string('worker_event_registration_comments', 255);
@@ -23,7 +23,6 @@ class CreateWorkerEventRegistrationsTable extends Migration
             $table->date('worker_event_registration_date');
             $table->boolean('worker_selection_communicated');
 
-            $table->primary('worker_event_registration_id');
             $table->foreign('worker_event_registration_worker_id', 'worker_event_registration_worker_id_worker_id')->references('worker_id')->on('workers');
             $table->foreign('worker_event_registration_event_id', 'worker_event_registration_event_id_event_id')->references('event_id')->on('events');
         });
