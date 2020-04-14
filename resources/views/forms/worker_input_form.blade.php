@@ -1,12 +1,13 @@
-<form>
+<form method="POST" action="/workerAction">
+@csrf
     <label>First Name</label>
-    <input type="text"/>
+    <input type="text" name="workerFirstName"/>
     <br/>
     <label>Last Name</label>
-    <input type="text"/>
+    <input type="text" name="workerLastName"/>
     <br/>
     <label>Email</label>
-    <input type="text"/>
+    <input type="text" name="workerEmail"/>
     <br/>
-    <button>Add</button>
+    <button type="submit">Add</button>
 </form>

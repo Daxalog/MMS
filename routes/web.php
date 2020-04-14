@@ -23,4 +23,6 @@ Route::get('/workers', 'ImportController@showWorkers');
 Route::get('/events', 'ImportController@showEvents');
 
 Route::get('/workers/input', 'WorkerController@show');
+Route::post('/workerAction', 'WorkerController@storeWorker');
+
 Route::get('/events/input', 'WorkerController@show');
