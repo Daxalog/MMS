@@ -18,7 +18,6 @@ Route::get('/import/events', 'ImportController@importEvents');
 Route::get('/import/workers', 'ImportController@importWorkers');
 
 Route::get('/', 'ImportController@showHome');
-Route::get('/all', 'ImportController@showAll');
 Route::get('/workers', 'ImportController@showWorkers');
 Route::get('/events', 'ImportController@showEvents');
 

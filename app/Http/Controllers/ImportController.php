@@ -18,11 +18,6 @@ class ImportController extends Controller
     public function showHome() {
         return view('home');
     }
-
-    public function showAll() {
-        $workers = DB::table('workers')->get();
-        return view('all', ['workers'=> $workers]);
-    }
     public function showWorkers() {
         $workers = DB::table('workers')->get();
         return view('workers', ['workers'=> $workers]);

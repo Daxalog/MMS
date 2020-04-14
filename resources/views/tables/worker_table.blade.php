@@ -1,4 +1,4 @@
-<table class="table table-bordered" id="table">
+<table class="table table-bordered" id="worker-table">
     <thead>
        <tr>
           <th>User ID</th>
@@ -22,6 +22,6 @@
 
 <script>
     $(document).ready( function () {
-    $('#myTable').DataTable();
+    $('#worker-table').DataTable();
 } );
 </script>
