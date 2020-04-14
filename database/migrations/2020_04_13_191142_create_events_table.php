@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->integer('event_id')->autoIncrement();
             $table->integer('organizer_id_for_event');
             $table->string('event_name', 75);
+            $table->integer('event_workers_needed')->nullable();
             $table->date('event_date');
             $table->string('event_track', 45);
 
