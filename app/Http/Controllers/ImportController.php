@@ -15,23 +15,6 @@ use App\Event;
 
 class ImportController extends Controller
 {
-    public function showHome() {
-        return view('home');
-    }
-    public function showWorkers() {
-        $workers = DB::table('workers')->get();
-        return view('workers', ['workers'=> $workers]);
-    }
-    public function showEvents() {
-        $events = DB::table('events')->get();
-        return view('events', ['events'=> $events]);
-    }
-
-    //
-    public function import(){
-        Excel::import(new EventImports, 'storage/SampleData.xlsx');
-        return view('all');
-    }
 
     public function importEvents(){
         Excel::import(new EventImports, 'storage/SampleData.xlsx');

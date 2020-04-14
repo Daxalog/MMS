@@ -15,11 +15,10 @@
     <title>Document</title>
 </head>
 <body>
-    <a href='/'>Home</a>
-    <a href='/workers'>Workers</a>
-    <a href='/events'>Events</a>
-    
-    @yield('content')
+    @include('layouts.nav')
+    <div class="container-fluid">
+        @yield('content')
+    </div>
     
 </body>
 </html>

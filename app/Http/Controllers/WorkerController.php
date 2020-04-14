@@ -12,4 +12,8 @@ class WorkerController extends Controller
         $workers = DB::table('workers')->get();
         return view('input_workers', ['workers'=> $workers]);
     }
+    public function showInput() {
+        $workers = DB::table('workers')->get();
+        return view('workers', ['workers'=> $workers]);
+    }
 }
