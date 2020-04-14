@@ -25,3 +25,4 @@ Route::get('/events', 'ImportController@showEvents');
 //Route::get('user/{id}', 'UserController@show');
 
 Route::get('/workers/input', 'WorkerController@show');
+Route::get('/events/input', 'WorkerController@show');
