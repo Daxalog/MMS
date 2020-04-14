@@ -1,5 +1,3 @@
-@extends('layouts/layout')
-@section('content')
 <table class="table table-bordered" id="table">
     <thead>
        <tr>
@@ -12,10 +10,10 @@
     <tbody>
         @foreach ($workers as $worker)
         <tr>
-            <td>{{$worker->ID}}</td>
-            <td>{{$worker->FirstName}}</td>
-            <td>{{$worker->LastName}}</td>
-            <td>{{$worker->Email}}</td>
+            <td>{{$worker->worker_id}}</td>
+            <td>{{$worker->worker_first_name}}</td>
+            <td>{{$worker->worker_last_name}}</td>
+            <td>{{$worker->worker_email}}</td>
         </tr>  
         @endforeach
 
@@ -23,9 +21,7 @@
  </table>
 
 <script>
-    
     $(document).ready( function () {
     $('#myTable').DataTable();
 } );
 </script>
-@endsection
