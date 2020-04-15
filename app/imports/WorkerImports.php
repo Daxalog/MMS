@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
         $workerLast = $row[5];
         $workerEmail = $row[6];
          
-        $workerSearch = DB::table('workers')->where('worker_id', $workerId)->first();
+        $workerSearch = DB::table('workers')->where('worker_email', $workerEmail)->first();
         if($workerSearch === null){
             return new Worker([
                 'worker_id' => $workerId,

@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/import', 'ImportController@show');
-Route::get('/import/events', 'ImportController@importEvents');
 Route::get('/import/workers', 'ImportController@importWorkers');
 
 Route::get('/', 'HomeController@show');

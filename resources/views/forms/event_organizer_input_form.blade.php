@@ -1,16 +1,24 @@
 <form method="POST" action="/organizer">
 @csrf
-    <label>Organizer Name</label>
-    <input type="text" name="organizerName"/>
-    <br/>
-    <label>Organizer Contact First Name</label>
-    <input type="text" name="organizerFirstName"/>
-    <br/>
-    <label>Organizer Contact Last Name</label>
-    <input type="text" name="organizerLastName"/>
-    <br/>
-    <label>Organizer Contact Phone number</label>
-    <input type="text" name="organizerPhoneNumber"/>
-    <br/>
-    <button type="submit">Add</button>
+    <div class="form-group">
+        <label>Organizer Name</label>
+        <input type="text" class="form-control" name="organizerName" required/>
+    </div>
+
+    <div class="form-group">
+        <label>Organizer Contact First Name</label>
+        <input type="text" class="form-control" name="organizerFirstName" required/>
+    </div>
+
+    <div class="form-group">
+        <label>Organizer Contact Last Name</label>
+        <input type="text" class="form-control" name="organizerLastName" required/>
+    </div>
+
+    <div class="form-group">
+        <label>Organizer Contact Phone number</label>
+        <input type="text" class="form-control" name="organizerPhoneNumber" required/>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Add</button>
 </form>

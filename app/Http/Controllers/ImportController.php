@@ -18,12 +18,6 @@ class ImportController extends Controller
     public function show() {
         return view('import');
     }
-
-    public function importEvents(){
-        Excel::import(new EventImports, 'storage/SampleData.xlsx');
-        $events = DB::table('events')->get();
-        return view('events',['events'=>$events]);
-    }
     
     public function importWorkers(){
         Excel::import(new WorkerImports, 'storage/SampleData.xlsx');
