@@ -17,7 +17,7 @@ class CreateWorkerEventRegistrationsTable extends Migration
             $table->integer('worker_event_registration_id')->autoIncrement();
             $table->integer('worker_event_registration_worker_id');
             $table->integer('worker_event_registration_event_id');
-            $table->string('worker_event_registration_comments', 255);
+            $table->string('worker_event_registration_comments', 255)->nullable();
             $table->string('revised_registration', 1);
             $table->string('worker_selection_status', 1)->nullable();
             $table->date('worker_event_registration_date');
