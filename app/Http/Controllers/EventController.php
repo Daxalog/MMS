@@ -19,7 +19,15 @@ class EventController extends Controller
         return view('input_events', ['events'=> $events]);
     }
 
-    public function storeEvent(){
+    public function storeEvent(Request $request){
+
+        $validatedData = $request->validate([
+            'eventName' => 'required|max:75',
+            'eventDate' => 'required',
+            'eventTrack' => 'required|max:45',
+            'event_workers_needed' => 'max:11',
+            
+        ]);
 
         $event = new event();
 
@@ -27,6 +35,7 @@ class EventController extends Controller
         $event->event_date = request('eventDate');
         $event->event_track = request('eventTrack');
         $event->organizer_id_for_event = request('organizerID');
+        $event->event_workers_needed = request('event_workers_needed');
 
         $event->save();
         return redirect('/events/input');

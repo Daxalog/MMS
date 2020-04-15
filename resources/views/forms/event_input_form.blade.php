@@ -16,9 +16,14 @@
     </div>
 
     <div class="form-group">
+        <label>Workers Needed</label>
+        <input type="text" name="'event_workers_needed" class="form-control" required/>
+    </div>
+
+    <div class="form-group">
         <label>Organizer Id</label>
         <input type="text" name="organizerID" class="form-control" required/>
     </div>
-
+    
     <button class="btn btn-primary" type="submit">Add</button>
 </form>

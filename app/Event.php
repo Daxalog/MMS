@@ -13,6 +13,7 @@ class Event extends Model
         'organizer_id_for_event',
         'event_name',
         'event_date',
-        'event_track'
+        'event_track',
+        'event_workers_needed'
     ];
 }
