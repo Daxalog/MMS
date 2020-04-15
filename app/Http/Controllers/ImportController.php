@@ -15,6 +15,9 @@ use App\Event;
 
 class ImportController extends Controller
 {
+    public function show() {
+        return view('import');
+    }
 
     public function importEvents(){
         Excel::import(new EventImports, 'storage/SampleData.xlsx');

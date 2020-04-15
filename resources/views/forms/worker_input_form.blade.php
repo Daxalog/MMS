@@ -1,4 +1,4 @@
-<form method="POST" action="/workerAction">
+<form method="POST" action="/worker">
 @csrf
     <label>First Name</label>
     <input type="text" name="workerFirstName"/>

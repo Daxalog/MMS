@@ -1,4 +1,4 @@
-<form method="POST" action="/eventAction">
+<form method="POST" action="/event">
 @csrf
     <label>Event Name</label>
     <input type="text" name="eventName"/>

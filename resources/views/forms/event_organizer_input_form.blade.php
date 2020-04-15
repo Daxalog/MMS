@@ -1,4 +1,4 @@
-<form method="POST" action="/organizerAction">
+<form method="POST" action="/organizer">
 @csrf
     <label>Organizer Name</label>
     <input type="text" name="organizerName"/>
