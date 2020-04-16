@@ -49,14 +49,12 @@ use Carbon\Carbon;
 
                 //Find any registrations that have already been entered.
                 $registrationSearch = DB::table('worker_event_registrations')
-                                        ->where('worker_event_registration_worker_id', $row[3])
+                                        ->where('worker_event_registration_worker_id', $workerSearch->worker_id)
                                         ->where('worker_event_registration_event_id', $eventSearch->event_id)
                                         ->first();
                 
                 //If no registrations exist then enter.
                 if ($registrationSearch === null){
-                    error_log('worker id: ' . $row[3]);
-                    error_log('event id: ' . $eventSearch->event_id);
                     
                     return new WorkerEventRegistration([
                         'worker_event_registration_worker_id' => $workerSearch->worker_id,
