@@ -20,7 +20,6 @@ use Carbon\Carbon;
             return null;
         }
 
-
         $eventName =  $row[1];
         $eventDate = Carbon::parse($row[2]);
         //Find the event by the name and date.

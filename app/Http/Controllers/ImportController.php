@@ -22,6 +22,9 @@ class ImportController extends Controller
     }
 
     public function import(Request $request) {
+
+        $initialWorkersCount = DB::table('workers')->count();
+        $initialRegistrationCount = DB::table('worker_event_registrations')->count();
         
         $errors = array();
         $messages = array();
@@ -42,7 +45,15 @@ class ImportController extends Controller
             return view('import', ['errors' => $errors]);
         }
 
+        $newWorkerCount = DB::table('workers')->count();
+        $newRegistrationCount = DB::table('worker_event_registrations')->count();
+
+        $workerDifference = $newWorkerCount - $initialWorkersCount;
+        $registrationDifference = $newRegistrationCount - $initialRegistrationCount;
+
         array_push($messages, 'Success.');
+        array_push($messages, $workerDifference . ' worker(s) added.');
+        array_push($messages, $registrationDifference . ' registrations(s) added.');
         return view('import', ['messages' => $messages]);
     }
 }
