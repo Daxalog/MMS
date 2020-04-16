@@ -35,3 +35,7 @@ Route::post('/organizer', 'EventOrganizersController@storeOrganizer');
 
 Route::get('/registrations/{registration}', 'RegistrationController@show');
 Route::post('/registrations/{registration}', 'RegistrationController@apply');
+
+Route::get('/email', 'MailController@input');
+Route::post('email/preview', 'MailController@preview');
+Route::post('email/send', 'MailController@send');

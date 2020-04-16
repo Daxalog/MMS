@@ -43,6 +43,8 @@ class RegistrationController extends Controller
     		}
     	}
 
-    	return view('registration.select', compact(['registrations', 'event']));
+        $msg = 'Selections have been applied!';
+
+    	return view('registration.select', compact(['registrations', 'event', 'msg']));
     }
 }

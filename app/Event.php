@@ -9,10 +9,21 @@ class Event extends Model
 {
     public $timestamps = false;
     //
+    protected $primaryKey = 'event_id';
     protected $fillable = [
         'organizer_id_for_event',
         'event_name',
         'event_date',
         'event_track'
     ];
+
+    public function eventOrganizer()
+    {
+        return $this->belongsTo(EventOrganizer::class, 'organizer_id_for_event', 'event_organizer_id');
+    }
+
+    public function registrations()
+    {
+        return $this->hasMany(WorkerEventRegistration::class, 'worker_event_registration_event_id', 'event_id');
+    }
 }

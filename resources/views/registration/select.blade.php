@@ -2,6 +2,11 @@
 @section('content')
     <h1>Registrations for {{ $event->event_name }}</h1>
     <br />
+    @if(isset($msg))
+    	<div class="alert alert-success">	
+			{{ $msg }}
+		</div>
+	@endif
     <br />
     <form method="POST" action="/registrations/{{$event->event_id}}">
     @csrf
