@@ -3,26 +3,27 @@
 namespace App\Imports;
 
 use App\Worker;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\Importable;
 use Illuminate\Support\Facades\DB;
 
- class WorkerImports implements ToModel
+ class WorkerImports implements ToModel, WithHeadingRow
 {
 
     use Importable;
 
      public function model(array $row){
 
-        if ($row[0] == 'ID'){
+        if ($row['id'] == 'ID'){
             return null;
         }
 
-        $workerId = $row[3];
-        $workerFirst = $row[4];
-        $workerLast = $row[5];
-        $workerEmail = $row[6];
+        $workerId = $row['event_id'];
+        $workerFirst = $row['first_name'];
+        $workerLast = $row['last_name'];
+        $workerEmail = $row['email'];
          
         $workerSearch = DB::table('workers')->where('worker_email', $workerEmail)->first();
         if($workerSearch === null){

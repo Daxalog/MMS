@@ -10,13 +10,16 @@ class EventController extends Controller
 {
 
     public function show() {
+        $organizers = DB::table('event_organizers')->get();
         $events = DB::table('events')->get();
-        return view('events', ['events'=> $events]);
+        return view('events', ['events'=> $events, 'organizers' => $organizers]);
     }
     
     public function showInput() {
         $events = DB::table('events')->get();
-        return view('input_events', ['events'=> $events]);
+
+        $organizers = DB::table('event_organizers')->get();
+        return view('input_events', ['events'=> $events, 'organizers' => $organizers]);
     }
 
     public function storeEvent(){
