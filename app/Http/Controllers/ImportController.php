@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use App\Imports\RegistrationImport;
 use App\Imports\WorkerImports;
@@ -11,25 +10,20 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use App\Event;
-
+use Facade\FlareClient\Stacktrace\File;
+use Illuminate\Support\Facades\Storage;
 
 class ImportController extends Controller
 {
     public function show() {
         return view('import');
     }
-
-    public function import(){
-        $workers = (new WorkerImports)->toCollection('storage/SampleData.xlsx');     
-        Excel::import(new WorkerImports, 'storage/SampleData.xlsx');
-
-        Excel::import(new RegistrationImport, 'storage/SampleData.xlsx');
-        return view('import');
-    }
     
-    public function importWorkers(){
-        Excel::import(new WorkerImports, 'storage/SampleData.xlsx');
-        $workers = DB::table('workers')->get();
-        return view('all', ['workers'=> $workers]);
+    public function import(Request $request) {
+
+        Excel::import(new WorkerImports, $request->ExcelFile);
+        Excel::import(new RegistrationImport, $request->ExcelFile);
+
+        return redirect('import');
     }
 }
