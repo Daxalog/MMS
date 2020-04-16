@@ -2,6 +2,11 @@
 @section('content')
     <h1>Select Details for Email</h1>
     <br />
+    @if(null !== \Session::get('msg'))
+    	<div class="alert alert-success">	
+			{{ \Session::pull('msg') }}
+		</div>
+	@endif
     <br />
     <form method="POST" action="/email/preview">
     @csrf

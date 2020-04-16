@@ -40,7 +40,7 @@ class MailController extends Controller
     		}
     	}
 
-    	$allWorkers = \App\Worker::orderBy('worker_last_name', 'desc')->get();
+    	$allWorkers = \App\Worker::orderBy('worker_last_name', 'asc')->get();
     	$workers = [];
     	$recipients = [];
 
@@ -69,7 +69,7 @@ class MailController extends Controller
 
     	if(count($recipients) == 0)
     	{
-    		return \Redirect::back()->with('msg', 'No emails currently need to be sent out.');
+    		return \Redirect::back()->with('msg', 'No emails currently need to be sent out for selected events.');
     	}
 
     	$recipient = $recipients[0];

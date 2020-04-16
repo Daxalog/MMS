@@ -46,6 +46,6 @@ class SelectionEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.selection');//->with(['message' => $this->message, 'recipient' => $this->recipient, 'workers' => $this->workers, 'events' => $this->events, 'selections' => $this->selections]);
+        return $this->subject('Please Confirm')->view('mail.selection');//->with(['message' => $this->message, 'recipient' => $this->recipient, 'workers' => $this->workers, 'events' => $this->events, 'selections' => $this->selections]);
     }
 }

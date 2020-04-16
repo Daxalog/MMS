@@ -3,9 +3,9 @@
     <h1>Email Preview</h1>
     <br />
     <br />
-
+    <div class="card">
 		@include('mail/selection')
-
+	</div>
 <h4>List of Recipients</h4>
 <ul>
 	@foreach ($recipients as $reciever)

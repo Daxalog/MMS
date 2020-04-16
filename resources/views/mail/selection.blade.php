@@ -5,7 +5,7 @@
 </head>
 <body>
 	<p>
-		{{ $recipient->worker_last_name }},<br />
+		{{ $recipient->worker_first_name }},<br />
 		Thank you for your applications. The table below shows the names of the marshals
 		that we have selected to work on each of the days listed. If your name does not appear
 		in the table, we're sorry but it means we had more marshals apply than are needed
