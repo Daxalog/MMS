@@ -15,6 +15,7 @@ use Carbon\Carbon;
 
      public function model(array $row){
 
+        //Do not read the columns headers.
         if ($row[0] == 'ID'){
             return null;
         }
@@ -22,42 +23,54 @@ use Carbon\Carbon;
 
         $eventName =  $row[1];
         $eventDate = Carbon::parse($row[2]);
-        $workerEmail = $row[6];
-
+        //Find the event by the name and date.
         $eventSearch = DB::table('events')
                         ->where('event_name', $eventName)
                         ->where('event_date', $eventDate)
                         ->first();
 
+        
         if($eventSearch !== null){
-            //error_log('found');
-            //error_log($eventSearch->event_id);
-            $workerRevised = '';
-            if ($row[7] == 'Original registration'){
-                $workerRevised = 'o';
-            }
-            else{
-                $workerRevised = 'r';
-            }
+            //Find the worker to get his ID
+            $workerSearch = DB::table('workers')
+                            ->where('worker_email', $row[6])
+                            ->first();
 
-            $registrationSearch = DB::table('worker_event_registrations')
-                                    ->where('worker_event_registration_worker_id', $row[3])
-                                    ->where('worker_event_registration_event_id', $eventSearch->event_id)
-                                    ->first();
-            
-            if ($registrationSearch === null){
-                return new WorkerEventRegistration([
-                    //'worker_event_registration_id' => 1,
-                    'worker_event_registration_worker_id' => $row[3],
-                    'worker_event_registration_event_id' => $eventSearch->event_id,
-                    'worker_event_registration_comments' => $row[9],
-                    'revised_registration' => $workerRevised,
-                    'worker_event_registration_date' => Carbon::parse($row[11]),
-                    'worker_selection_communicated' => false
-                ]);
-            }
-            else{
-                error_log('Worker Registration Already Exists');
+            if($workerSearch !== null){
+                
+                //Set the registration status
+                $workerRevised = '';
+                if ($row[7] == 'Original registration'){
+                    $workerRevised = 'o';
+                }
+                else{
+                    $workerRevised = 'r';
+                }
+
+                //Find any registrations that have already been entered.
+                $registrationSearch = DB::table('worker_event_registrations')
+                                        ->where('worker_event_registration_worker_id', $row[3])
+                                        ->where('worker_event_registration_event_id', $eventSearch->event_id)
+                                        ->first();
+                
+                //If no registrations exist then enter.
+                if ($registrationSearch === null){
+                    error_log('worker id: ' . $row[3]);
+                    error_log('event id: ' . $eventSearch->event_id);
+                    
+                    return new WorkerEventRegistration([
+                        'worker_event_registration_worker_id' => $workerSearch->worker_id,
+                        'worker_event_registration_event_id' => $eventSearch->event_id,
+                        'worker_event_registration_comments' => $row[9],
+                        'revised_registration' => $workerRevised,
+                        'worker_event_registration_date' => Carbon::parse($row[11]),
+                        'worker_selection_communicated' => false
+                    ]);
+                    
+                }
+                else{
+                    error_log('Worker Registration Already Exists');
+                }
             }
 
         }
