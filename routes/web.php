@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleare group. Now create something great!
 |
 */
+
+Route::get('/import/registration', 'ImportController@import');
+
 Route::get('/import', 'ImportController@show');
 Route::get('/import/workers', 'ImportController@importWorkers');
 

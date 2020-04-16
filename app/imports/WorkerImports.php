@@ -3,11 +3,15 @@
 namespace App\Imports;
 
 use App\Worker;
+
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\Importable;
 use Illuminate\Support\Facades\DB;
 
  class WorkerImports implements ToModel
 {
+
+    use Importable;
 
      public function model(array $row){
 

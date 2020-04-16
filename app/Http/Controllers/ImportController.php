@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App\Imports\EventImports;
+use App\Imports\RegistrationImport;
 use App\Imports\WorkerImports;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
@@ -16,6 +16,14 @@ use App\Event;
 class ImportController extends Controller
 {
     public function show() {
+        return view('import');
+    }
+
+    public function import(){
+        $workers = (new WorkerImports)->toCollection('storage/SampleData.xlsx');     
+        Excel::import(new WorkerImports, 'storage/SampleData.xlsx');
+
+        Excel::import(new RegistrationImport, 'storage/SampleData.xlsx');
         return view('import');
     }
     
