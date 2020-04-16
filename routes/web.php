@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleare group. Now create something great!
 |
 */
-
-Route::get('/import/registration', 'ImportController@import');
-
-Route::get('/import', 'ImportController@show');
-Route::get('/import/workers', 'ImportController@importWorkers');
-
 Route::get('/', 'HomeController@show');
 
 Route::get('/events', 'EventController@show');
@@ -39,3 +33,5 @@ Route::post('/registrations/{registration}', 'RegistrationController@apply');
 Route::get('/email', 'MailController@input');
 Route::post('email/preview', 'MailController@preview');
 Route::post('email/send', 'MailController@send');
+Route::get('/import', 'ImportController@show');
+Route::post('/import', 'ImportController@import');
