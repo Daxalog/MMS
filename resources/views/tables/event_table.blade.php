@@ -5,6 +5,7 @@
           <th>Name</th>
           <th>Date</th>
           <th>Track</th>
+          <th>Registrations</th>
        </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
             <td>{{$event->event_name}}</td>
             <td>{{$event->event_date}}</td>
             <td>{{$event->event_date}}</td>
+            <td><button class="btn btn-primary" onclick="window.location.href = '/registrations/{{$event->event_id}}';">View</button></td>
         </tr>  
         @endforeach
 

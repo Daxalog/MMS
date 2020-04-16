@@ -32,3 +32,6 @@ Route::post('/worker', 'WorkerController@storeWorker');
 Route::get('/organizers', 'EventOrganizersController@show');
 Route::get('/organizers/input', 'EventOrganizersController@showInput');
 Route::post('/organizer', 'EventOrganizersController@storeOrganizer');
+
+Route::get('/registrations/{registration}', 'RegistrationController@show');
+Route::post('/registrations/{registration}', 'RegistrationController@apply');

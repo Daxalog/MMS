@@ -8,6 +8,7 @@ class WorkerEventRegistration extends Model
 {
     public $timestamps = false;
     //
+    protected $primaryKey = 'worker_event_registration_id';
     protected $fillable = [
         'worker_event_registration_id', 
         'worker_event_registration_worker_id', 
@@ -18,4 +19,9 @@ class WorkerEventRegistration extends Model
         'worker_event_registration_date',
         'worker_selection_communicated'
     ];
+
+    public function worker()
+    {
+        return $this->belongsTo(Worker::class, 'worker_event_registration_worker_id', 'worker_id');
+    }
 }
