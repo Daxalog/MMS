@@ -8,6 +8,7 @@
           <th>Track</th>
           <th>Workers Needed</th>
           <th>Registrations</th>
+          <th>Options</th>
        </tr>
     </thead>
     <tbody>
@@ -26,6 +27,12 @@
             <td>{{$event->event_track}}</td>
             <td>{{$event->event_workers_needed}}</td>
             <td><button class="btn btn-primary" onclick="window.location.href = '/registrations/{{$event->event_id}}';">View</button></td>
+            <td> <a href="{{ url('/event/edit/'.$event->event_id) }}"><button type="button" class="btn btn-primary" >Edit</button></a>
+            <form method ="post" class="btn btn-primary" action="{{ url('/event/delete/'.$event->event_id) }}">
+            {{csrf_field()}}
+            <input type= "hidden" name="_method" value="DELETE" />
+            <button type="submit" class="btn btn-primary">Delete</button>
+            </form> </td>
         </tr>  
         @endforeach
 
@@ -35,11 +42,6 @@
 <script>
     
     $(document).ready( function () {
-
     var table = $('#event-table').DataTable();
-    $('#event-table').on('click', 'tr', function () {
-        var data = table.row( this ).data();
-        alert( 'You clicked on '+data[1]+'\'s row' );
-    } );
 } );
 </script>
