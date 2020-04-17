@@ -15,9 +15,9 @@ class SelectionEmail extends Mailable
     use Queueable, SerializesModels;
 
     //Additional message to appear on the email
-    public $message
+    public $bodyMessage;
     //The worker that the email is being sent to
-    public $recipient
+    public $recipient;
     //List of workers that are registered for at least one selected event
     public $workers;
     //List of selected events
@@ -32,11 +32,11 @@ class SelectionEmail extends Mailable
      */
     public function __construct(string $emailMessage, Worker $recipientWorker, array $registeredWorkers, array $selectedEvents, array $workerSelections)
     {
-        $message = $emailMessage;
-        $recipient = $recipientWorker;
-        $workers = $registeredWorkers;
-        $events = $selectedEvents;
-        $selections = $workerSelections;
+        $this->bodyMessage = $emailMessage;
+        $this->recipient = $recipientWorker;
+        $this->workers = $registeredWorkers;
+        $this->events = $selectedEvents;
+        $this->selections = $workerSelections;
     }
 
     /**
@@ -46,6 +46,6 @@ class SelectionEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.selection')->with([$message, $recipient, $workers, $events, $selections]);
+        return $this->subject('Please Confirm')->view('mail.selection');//->with(['message' => $this->message, 'recipient' => $this->recipient, 'workers' => $this->workers, 'events' => $this->events, 'selections' => $this->selections]);
     }
 }

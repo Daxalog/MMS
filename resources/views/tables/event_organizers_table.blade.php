@@ -3,9 +3,9 @@
        <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Date</th>
-          <th>Track</th>
-          <th>Phone Number</th>
+          <th>Contact First</th>
+          <th>Contact Last</th>
+          <th>Contact Phone</th>
        </tr>
     </thead>
     <tbody>

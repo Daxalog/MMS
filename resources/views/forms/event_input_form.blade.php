@@ -22,7 +22,13 @@
 
     <div class="form-group">
         <label>Organizer Id</label>
-        <input type="text" name="organizerID" class="form-control" required/>
+        <!--<input type="text" name="organizerID" class="form-control" required/> -->
+
+        <select class="form-control" id="exampleFormControlSelect1" name="organizerID">
+            @foreach($organizers as $organizer)
+                <option value={{$organizer->event_organizer_id}}>{{$organizer->organizer_name}}</option>
+            @endforeach
+        </select>
     </div>
     
     <button class="btn btn-primary" type="submit">Add</button>

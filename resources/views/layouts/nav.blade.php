@@ -18,6 +18,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/import">Import</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/email">Send Emails</a>
+        </li>
       </ul>
     </div>
   </nav>
