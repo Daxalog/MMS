@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
             return null;
         }
 
-        $workerId = $row['event_id'];
+        $workerId = $row['user_id'];
         $workerFirst = $row['first_name'];
         $workerLast = $row['last_name'];
         $workerEmail = $row['email'];
