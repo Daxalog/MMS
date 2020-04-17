@@ -24,4 +24,9 @@ class WorkerEventRegistration extends Model
     {
         return $this->belongsTo(Worker::class, 'worker_event_registration_worker_id', 'worker_id');
     }
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class, 'worker_event_registration_event_id', 'event_id');
+    }
 }

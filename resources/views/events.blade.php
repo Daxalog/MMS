@@ -6,5 +6,8 @@
     </a>
     <br />
     <br />
+    <a href="/events/upcoming">View Upcoming and Past Events</a>
+    <br />
+    <br />
 @include('tables/event_table')
 @endsection

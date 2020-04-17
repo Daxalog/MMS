@@ -6,6 +6,7 @@
           <th>Contact First</th>
           <th>Contact Last</th>
           <th>Contact Phone</th>
+          <th>View Events</th>
        </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
             <td>{{$organizer->organizer_contact_first_name}}</td>
             <td>{{$organizer->organizer_contact_last_name}}</td>
             <td>{{$organizer->organizer_contact_phone_number}}</td>
+            <td><button class="btn btn-primary" onclick="window.location.href = '/organizers/{{$organizer->event_organizer_id}}';">View</button></td>
         </tr>  
         @endforeach
 
