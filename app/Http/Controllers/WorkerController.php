@@ -19,7 +19,7 @@ class WorkerController extends Controller
         $registrations = \App\WorkerEventRegistration::where('worker_event_registration_worker_id', $id)->get();
         $worker = \App\Worker::where('worker_id', $id)->first();
 
-        return view('reports.worker_registrations', compact(['registrations', 'worker']));
+        return view('worker_registrations', compact(['registrations', 'worker']));
     }
 
     public function apply(Request $request, $id)
@@ -53,7 +53,7 @@ class WorkerController extends Controller
 
         $msg = 'Selections have been applied!';
 
-        return view('reports.worker_registrations', compact(['registrations', 'worker', 'msg']));
+        return view('worker_registrations', compact(['registrations', 'worker', 'msg']));
     }
 
     public function showInput() {
