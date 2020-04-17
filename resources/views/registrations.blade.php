@@ -6,7 +6,7 @@
     <a href="registrations/summary">View Registration Summary</a>
     <br />
     <br />
-    <table class="table table-bordered">
+    <table class="table table-bordered" id="registered-table">
 	    <thead>
 	       <tr>
 	          <th>ID</th>
@@ -34,4 +34,10 @@
 	        @endforeach
 	    </tbody>
 	</table>
+
+	<script>
+	$(document).ready( function () {
+		$('#registered-table').DataTable();
+	} );
+	</script>
 @endsection

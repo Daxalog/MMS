@@ -14,7 +14,8 @@
 	    <textarea class="form-control" name="message"></textarea>
 
 	    <h4>Upcoming Events</h4>
-	    <table class="table">
+	    <table class="table" id="email-upcoming">
+			<thead>
 	    	<tr>
 	    		<th>Event ID</th>
 	    		<th>Event Name</th>
@@ -22,7 +23,9 @@
 	    		<th>Event Track</th>
 	    		<th>Event Organizer</th>
 	    		<th>Include in Email</th>
-	    	</tr>
+			</tr>
+		</thead>
+		<tbody>
 	        @foreach($upcomingEvents as $event)
 	    		<tr>
 	    			<td>{{ $event->event_id }}</td>
@@ -32,11 +35,13 @@
 	    			<td>{{ $event->eventOrganizer->organizer_name }}</td>
 	    			<td><input type="checkbox" name="{{ $event->event_id }}"></td>
 	    		</tr>
-	    	@endforeach
+			@endforeach
+		</tbody>
 	    </table>
 
 	    <h4>Past Events</h4>
-	    <table class="table">
+	    <table class="table" id="email-past">
+			<thead>
 	    	<tr>
 	    		<th>Event ID</th>
 	    		<th>Event Name</th>
@@ -44,7 +49,9 @@
 	    		<th>Event Track</th>
 	    		<th>Event Organizer</th>
 	    		<th>Include in Email</th>
-	    	</tr>
+			</tr>
+			</thead>
+			<tbody>
 	        @foreach($pastEvents as $event)
 	    		<tr>
 	    			<td>{{ $event->event_id }}</td>
@@ -54,7 +61,8 @@
 	    			<td>{{ $event->eventOrganizer->organizer_name }}</td>
 	    			<td><input type="checkbox" name="{{ $event->event_id }}"></td>
 	    		</tr>
-	    	@endforeach
+			@endforeach
+			</tbody>
 	    </table>
 
 	    <p>
@@ -67,5 +75,12 @@
 	    Send to all workers: <input type="checkbox" name="sendAll"><br><br>
 
 		<input class="btn btn-primary" type="submit" name="btn_submit" value="Preview Email">
-    </form>
+	</form>
+	
+	<script>
+		$(document).ready( function () {
+			$('#email-upcoming').DataTable();
+			$('#email-past').DataTable();
+		} );
+	</script>
 @endsection
