@@ -19,7 +19,7 @@
 		    			<td>{{ $event->event_id }}</td>
 		    			<td>{{ $event->event_name }}</td>
 		    			<td>{{ $event->event_date }}</td>
-		    			<td>{{ $event->event_track }}</td>
+		    			<td><a href="/events/{{$event->event_track}}">{{$event->event_track}}</a></td>
 		       		</tr>
 		    	@endforeach
 		    </table>
@@ -39,7 +39,7 @@
 		    			<td>{{ $event->event_id }}</td>
 		    			<td>{{ $event->event_name }}</td>
 		    			<td>{{ $event->event_date }}</td>
-		    			<td>{{ $event->event_track }}</td>
+		    			<td><a href="/events/{{$event->event_track}}">{{$event->event_track}}</a></td>
 		    		</tr>
 		    	@endforeach
 		    </table>

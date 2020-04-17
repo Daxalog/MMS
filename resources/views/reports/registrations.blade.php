@@ -3,6 +3,9 @@
     <h1>Registrations</h1>
     <br />
     <br />
+    <a href="registrations/summary">View Registration Summary</a>
+    <br />
+    <br />
     <table class="table table-bordered">
 	    <thead>
 	       <tr>

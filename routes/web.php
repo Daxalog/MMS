@@ -22,6 +22,8 @@ Route::get('/events/input', 'EventController@showInput');
 Route::post('/event', 'EventController@storeEvent');
 
 Route::get('/workers', 'WorkerController@showInput');
+Route::get('/workers/registrations/{worker}', 'WorkerController@registrations');
+Route::post('/workers/registrations/{worker}', 'WorkerController@apply');
 Route::get('/workers/input', 'WorkerController@show');
 Route::post('/worker', 'WorkerController@storeWorker');
 
@@ -31,6 +33,7 @@ Route::get('/organizers/input', 'EventOrganizersController@showInput');
 Route::post('/organizer', 'EventOrganizersController@storeOrganizer');
 
 Route::get('registrations', 'RegistrationController@list');
+Route::get('registrations/summary', 'RegistrationController@summary');
 Route::get('/registrations/{registration}', 'RegistrationController@show');
 Route::post('/registrations/{registration}', 'RegistrationController@apply');
 
