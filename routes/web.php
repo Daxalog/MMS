@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@show');
 
 Route::get('/events', 'EventController@show');
+Route::get('/events/upcoming', 'EventController@showUpcoming');
+Route::get('/events/{track}', 'EventController@showTrack');
 Route::get('/events/input', 'EventController@showInput');
 Route::post('/event', 'EventController@storeEvent');
 Route::get('/event/edit/{event_id}', 'EventController@editEvent');
@@ -23,6 +25,8 @@ Route::post('/event/update/{event_id}', 'EventController@updateEvent');
 Route::delete('/event/delete/{event_id}', 'EvenrController@deleteEvent');
 
 Route::get('/workers', 'WorkerController@showInput');
+Route::get('/workers/registrations/{worker}', 'WorkerController@registrations');
+Route::post('/workers/registrations/{worker}', 'WorkerController@apply');
 Route::get('/workers/input', 'WorkerController@show');
 Route::post('/worker', 'WorkerController@storeWorker');
 Route::get('/worker/edit/{worker_id}', 'WorkerController@editWorker');
@@ -30,12 +34,15 @@ Route::patch('/worker/update/{worker_id}', 'WorkerController@updateWorker');
 Route::delete('/worker/delete/{worker_id}', 'WorkerController@deleteWorker');
 
 Route::get('/organizers', 'EventOrganizersController@show');
+Route::get('/organizers/{organizer}', 'EventOrganizersController@showEvents');
 Route::get('/organizers/input', 'EventOrganizersController@showInput');
 Route::post('/organizer', 'EventOrganizersController@storeOrganizer');
 Route::get('/organizer/edit/{event_organizer_id}', 'EventOrganizersController@editOrganizer');
 Route::patch('/organizer/update/{event_organizer_id}', 'EventOrganizersController@updateOrganizer');
 Route::delete('/organizer/delete/{event_organizer_id}', 'EventOrganizersController@deleteOrganizer');
 
+Route::get('registrations', 'RegistrationController@list');
+Route::get('registrations/summary', 'RegistrationController@summary');
 Route::get('/registrations/{registration}', 'RegistrationController@show');
 Route::post('/registrations/{registration}', 'RegistrationController@apply');
 

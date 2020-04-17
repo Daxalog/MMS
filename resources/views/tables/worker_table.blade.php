@@ -6,6 +6,7 @@
           <th>Last Name</th>
           <th>Email</th>
           <th>Options</th>
+          <th>Registrations</th>
        </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
             <input type= "hidden" name="_method" value="DELETE" />
             <button type="submit" class="btn btn-primary">Delete</button>
             </form> </td>
+            <td><button class="btn btn-primary" onclick="window.location.href = 'workers/registrations/{{$worker->worker_id}}';">View</button></td>
         </tr>  
         @endforeach
 

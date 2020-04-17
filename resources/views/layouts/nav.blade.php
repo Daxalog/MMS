@@ -16,6 +16,9 @@
           <a class="nav-link" href="/organizers">Event Organizers</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/registrations">Worker Registrations</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/import">Import</a>
         </li>
         <li class="nav-item">

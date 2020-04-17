@@ -7,6 +7,7 @@
           <th>Contact Last</th>
           <th>Contact Phone</th>
           <th>Options</th>
+          <th>View Events</th>
        </tr>
     </thead>
     <tbody>
@@ -23,6 +24,7 @@
             <input type= "hidden" name="_method" value="DELETE" />
             <button type="submit" class="btn btn-primary">Delete</button>
             </form> </td>
+            <td><button class="btn btn-primary" onclick="window.location.href = '/organizers/{{$organizer->event_organizer_id}}';">View</button></td>
         </tr>  
         @endforeach
 

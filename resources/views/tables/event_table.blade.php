@@ -24,7 +24,7 @@
             @endforeach
             
             <td>{{$event->event_date}}</td>
-            <td>{{$event->event_track}}</td>
+            <td><a href="/events/{{$event->event_track}}">{{$event->event_track}}</a></td>
             <td>{{$event->event_workers_needed}}</td>
             <td><button class="btn btn-primary" onclick="window.location.href = '/registrations/{{$event->event_id}}';">View</button></td>
             <td> <a href="{{ url('/event/edit/'.$event->event_id) }}"><button type="button" class="btn btn-primary" >Edit</button></a>
