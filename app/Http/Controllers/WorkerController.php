@@ -57,4 +57,15 @@ class WorkerController extends Controller
         $worker->save();
         return redirect('/workers/input');
     }
+
+    public function deleteWorker($id){
+
+        $worker = Worker::where('worker_id',$id)->first();
+        if($worker != null){
+            $worker->delete();
+            return redirect('/workers/input');
+        }
+        return redirect('/workers/input');
+
+    }
 }
