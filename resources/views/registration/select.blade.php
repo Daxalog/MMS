@@ -25,8 +25,8 @@
 		        @foreach ($registrations as $regis)
 		        <tr>
 		            <td>{{$regis->worker_event_registration_id}}</td>
-		            <td>{{$regis->worker->worker_first_name}}</td>
-		            <td>{{$regis->worker->worker_last_name}}</td>
+		            <td>{{$regis->worker->worker_first_name}} {{$regis->worker->worker_last_name}}</td>
+		            <td>{{$regis->worker->worker_email}}</td>
 		            <td>{{$regis->revised_registration == 'o' ? 'Original' : 'Revised'}} Registration</td>
 		            <td>{{$regis->worker_event_registration_date}}</td>
 		            <td><input type="checkbox" name="{{ $regis->worker_event_registration_id }}" {{$regis->worker_selection_status == 's' ? 'checked' : ''}}></td>

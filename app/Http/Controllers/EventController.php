@@ -14,6 +14,22 @@ class EventController extends Controller
         $events = DB::table('events')->get();
         return view('events', ['events'=> $events, 'organizers' => $organizers]);
     }
+
+    public function showUpcoming()
+    {
+        $upcomingEvents = \App\Event::where('event_date', '>', \DB::raw('NOW()'))->orderBy('event_date', 'asc')->get();
+        $pastEvents = \App\Event::where('event_date', '<=', \DB::raw('NOW()'))->orderBy('event_date', 'desc')->get();
+
+        return view('reports.events', compact(['upcomingEvents', 'pastEvents']));
+    }
+
+    public function showTrack($track)
+    {
+        $upcomingEvents = \App\Event::where('event_track', $track)->where('event_date', '>', \DB::raw('NOW()'))->orderBy('event_date', 'asc')->get();
+        $pastEvents = \App\Event::where('event_track', $track)->where('event_date', '<=', \DB::raw('NOW()'))->orderBy('event_date', 'desc')->get();
+
+        return view('reports.track', compact(['track', 'upcomingEvents', 'pastEvents']));
+    }
     
     public function showInput() {
         $events = DB::table('events')->get();

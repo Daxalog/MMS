@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
+    public function list()
+    {
+        $registrations = \App\WorkerEventRegistration::all();
+
+        return view('reports.registrations', compact(['registrations']));
+    }
+
     public function show($id)
     {
     	$registrations = \App\WorkerEventRegistration::where('worker_event_registration_event_id', $id)->get();

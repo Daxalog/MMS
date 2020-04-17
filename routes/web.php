@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@show');
 
 Route::get('/events', 'EventController@show');
+Route::get('/events/upcoming', 'EventController@showUpcoming');
+Route::get('/events/{track}', 'EventController@showTrack');
 Route::get('/events/input', 'EventController@showInput');
 Route::post('/event', 'EventController@storeEvent');
 
@@ -24,9 +26,11 @@ Route::get('/workers/input', 'WorkerController@show');
 Route::post('/worker', 'WorkerController@storeWorker');
 
 Route::get('/organizers', 'EventOrganizersController@show');
+Route::get('/organizers/{organizer}', 'EventOrganizersController@showEvents');
 Route::get('/organizers/input', 'EventOrganizersController@showInput');
 Route::post('/organizer', 'EventOrganizersController@storeOrganizer');
 
+Route::get('registrations', 'RegistrationController@list');
 Route::get('/registrations/{registration}', 'RegistrationController@show');
 Route::post('/registrations/{registration}', 'RegistrationController@apply');
 
