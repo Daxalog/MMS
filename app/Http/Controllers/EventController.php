@@ -20,7 +20,7 @@ class EventController extends Controller
         $upcomingEvents = \App\Event::where('event_date', '>', \DB::raw('NOW()'))->orderBy('event_date', 'asc')->get();
         $pastEvents = \App\Event::where('event_date', '<=', \DB::raw('NOW()'))->orderBy('event_date', 'desc')->get();
 
-        return view('reports.events', compact(['upcomingEvents', 'pastEvents']));
+        return view('events_report', compact(['upcomingEvents', 'pastEvents']));
     }
 
     public function showTrack($track)
@@ -28,7 +28,7 @@ class EventController extends Controller
         $upcomingEvents = \App\Event::where('event_track', $track)->where('event_date', '>', \DB::raw('NOW()'))->orderBy('event_date', 'asc')->get();
         $pastEvents = \App\Event::where('event_track', $track)->where('event_date', '<=', \DB::raw('NOW()'))->orderBy('event_date', 'desc')->get();
 
-        return view('reports.track', compact(['track', 'upcomingEvents', 'pastEvents']));
+        return view('track', compact(['track', 'upcomingEvents', 'pastEvents']));
     }
     
     public function showInput() {

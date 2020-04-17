@@ -10,7 +10,7 @@ class RegistrationController extends Controller
     {
         $registrations = \App\WorkerEventRegistration::all();
 
-        return view('reports.registrations', compact(['registrations']));
+        return view('registrations', compact(['registrations']));
     }
 
     public function show($id)
@@ -18,7 +18,7 @@ class RegistrationController extends Controller
     	$registrations = \App\WorkerEventRegistration::where('worker_event_registration_event_id', $id)->get();
     	$event = \App\Event::where('event_id', $id)->first();
 
-    	return view('registration.select', compact(['registrations', 'event']));
+    	return view('registration_select', compact(['registrations', 'event']));
     }
 
     public function summary()
@@ -39,7 +39,7 @@ class RegistrationController extends Controller
             array_push($counts, $collection);
         }
 
-        return view('reports.registration_summary', compact(['counts']));
+        return view('registration_summary', compact(['counts']));
     }
 
     public function apply(Request $request, $id)
@@ -73,6 +73,6 @@ class RegistrationController extends Controller
 
         $msg = 'Selections have been applied!';
 
-    	return view('registration.select', compact(['registrations', 'event', 'msg']));
+    	return view('registration_select', compact(['registrations', 'event', 'msg']));
     }
 }

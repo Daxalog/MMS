@@ -21,7 +21,7 @@ class EventOrganizersController extends Controller
         $upcomingEvents = \App\Event::where('organizer_id_for_event', $id)->where('event_date', '>', \DB::raw('NOW()'))->orderBy('event_date', 'asc')->get();
         $pastEvents = \App\Event::where('organizer_id_for_event', $id)->where('event_date', '<=', \DB::raw('NOW()'))->orderBy('event_date', 'desc')->get();
 
-        return view('reports.events', compact(['organizer', 'upcomingEvents', 'pastEvents']));
+        return view('events_report', compact(['organizer', 'upcomingEvents', 'pastEvents']));
     }
 
     public function showInput() {
