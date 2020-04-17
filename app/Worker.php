@@ -14,4 +14,5 @@ class Worker extends Model
         'worker_last_name', 
         'worker_email'
     ];
+    protected $primaryKey = 'worker_id';
 }

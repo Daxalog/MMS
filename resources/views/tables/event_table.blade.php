@@ -25,6 +25,11 @@
 <script>
     
     $(document).ready( function () {
-    $('#event-table').DataTable();
+
+    var table = $('#event-table').DataTable();
+    $('#event-table').on('click', 'tr', function () {
+        var data = table.row( this ).data();
+        alert( 'You clicked on '+data[1]+'\'s row' );
+    } );
 } );
 </script>

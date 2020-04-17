@@ -25,6 +25,8 @@ Route::post('/event', 'EventController@storeEvent');
 Route::get('/workers', 'WorkerController@showInput');
 Route::get('/workers/input', 'WorkerController@show');
 Route::post('/worker', 'WorkerController@storeWorker');
+Route::get('/worker/edit/{worker_id}', 'WorkerController@editWorker');
+Route::patch('/worker/update/{worker_id}', 'WorkerController@updateWorker');
 
 Route::get('/organizers', 'EventOrganizersController@show');
 Route::get('/organizers/input', 'EventOrganizersController@showInput');

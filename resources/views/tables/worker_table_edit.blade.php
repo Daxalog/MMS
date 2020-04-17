@@ -15,7 +15,7 @@
             <td>{{$worker->worker_first_name}}</td>
             <td>{{$worker->worker_last_name}}</td>
             <td>{{$worker->worker_email}}</td>
-            <td> <a href="{{ url('/worker/edit/'.$worker->worker_id) }}"><button type="button" class="btn btn-primary" >Edit</button></a> </td>
+            <td> <a href='/workers/edit'><button type="button" class="btn btn-primary" >Edit</button></a> </td>
         </tr>  
         @endforeach
 
@@ -24,6 +24,10 @@
 
 <script>
     $(document).ready( function () {
-        $('#worker-table').DataTable();
+    var table = $('#worker-table').DataTable();
+    $('#worker-table').on('click', 'tr', function () {
+        var data = table.row( this ).data();
+        alert( 'Debug You clicked on '+data[1]+'\'s row' );
     } );
+} );
 </script>
