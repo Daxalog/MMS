@@ -1,16 +1,9 @@
 @extends('layouts/layout')
 @section('content')
     <h1>Registrations</h1>
-    <br />
-    <br />
-    <a href='/registrations/input'>
-        <button type="button" class="btn btn-primary" href='/registrations/input'>Add Registration</button>
-    </a>
-    <br />
-    <br />
-    <a href="registrations/summary">View Registration Summary</a>
-    <br />
-    <br />
+    @include('forms/input_form_error')
+    @include('forms/registration_input_form')
+    <br/>
     <table class="table table-bordered" id="registered-table">
 	    <thead>
 	       <tr>

@@ -42,6 +42,8 @@ Route::patch('/organizer/update/{event_organizer_id}', 'EventOrganizersControlle
 Route::delete('/organizer/delete/{event_organizer_id}', 'EventOrganizersController@deleteOrganizer');
 
 Route::get('registrations', 'RegistrationController@list');
+Route::get('registrations/input', 'RegistrationController@showInput');
+Route::post('/registration', 'RegistrationController@store');
 Route::get('registrations/summary', 'RegistrationController@summary');
 Route::get('/registrations/{registration}', 'RegistrationController@show');
 Route::post('/registrations/{registration}', 'RegistrationController@apply');
