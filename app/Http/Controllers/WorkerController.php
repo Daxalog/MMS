@@ -103,11 +103,15 @@ class WorkerController extends Controller
 
     public function deleteWorker($id){
 
+        
+        
         $worker = Worker::where('worker_id',$id)->first();
         if($worker != null){
+            DB::table('worker_event_registrations')->where('worker_event_registration_worker_id', $id)->delete();
             $worker->delete();
             return redirect('/workers/input');
         }
+        
         return redirect('/workers/input');
 
     }
