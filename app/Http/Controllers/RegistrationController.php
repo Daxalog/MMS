@@ -21,6 +21,43 @@ class RegistrationController extends Controller
     	return view('registration_select', compact(['registrations', 'event']));
     }
 
+    public function showInput() 
+    {
+        $registrations = \App\WorkerEventRegistration::all();
+        $events = \App\Event::all();
+        $workers = \App\Worker::all();
+
+        return view('input_registrations', compact(['registrations', 'events', 'workers']));
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'comments' => 'max:255',
+            'registrationDate' => 'required',
+        ]);
+
+        $registration = new \App\WorkerEventRegistration();
+
+        $registration->worker_event_registration_worker_id = request('workerId');
+        $registration->worker_event_registration_event_id = request('eventId');
+        $registration->worker_event_registration_comments = request('comments');
+        $registration->revised_registration = request('type');
+        $registration->worker_selection_status = null;
+        $registration->worker_event_registration_date = request('registrationDate');
+        $registration->worker_selection_communicated = false;
+
+        $registration->save();
+        return redirect('/registrations/input');
+    }
+
+    public function editEvent($id){
+
+        $event = event::find($id);
+        $organizers = DB::table('event_organizers')->get();
+        return view('edit_events', compact('event', 'id','organizers', ['organizers'=> $organizers]));
+    }
+
     public function summary()
     {
         $workers = \App\Worker::orderBy('worker_first_name', 'asc')->get();
