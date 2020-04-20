@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@show');
 
 Route::get('/events', 'EventController@show');
 Route::get('/events/upcoming', 'EventController@showUpcoming');
-Route::get('/events/{track}', 'EventController@showTrack');
+Route::get('/events/track/{track}', 'EventController@showTrack');
 Route::get('/events/input', 'EventController@showInput');
 Route::post('/event', 'EventController@storeEvent');
 Route::get('/event/edit/{event_id}', 'EventController@editEvent');
