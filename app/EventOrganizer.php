@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EventOrganizer extends Model
 {
+    protected $primaryKey = 'event_organizer_id';
     public $timestamps = false;
     //
     protected $fillable = [

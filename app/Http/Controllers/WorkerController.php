@@ -87,7 +87,7 @@ class WorkerController extends Controller
 
     public function updateWorker(Request $request, $id){
 
-        $validatedData = $request->validate([
+        $request->validate([
             'workerFirstName' => 'required|max:30',
             'workerLastName' => 'required|max:40',
             'workerEmail' => 'required|max:60',
@@ -109,10 +109,10 @@ class WorkerController extends Controller
         if($worker != null){
             DB::table('worker_event_registrations')->where('worker_event_registration_worker_id', $id)->delete();
             $worker->delete();
-            return redirect('/workers/input');
+            return redirect('/workers');
         }
         
-        return redirect('/workers/input');
+        return redirect('/workers');
 
     }
 }
