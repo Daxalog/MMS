@@ -7,6 +7,11 @@
 			{{ \Session::pull('msg') }}
 		</div>
 	@endif
+	@if(null !== \Session::get('err'))
+    	<div class="alert alert-danger">	
+			{{ \Session::pull('err') }}
+		</div>
+	@endif
     <br />
     <form method="POST" action="/email/preview">
     @csrf

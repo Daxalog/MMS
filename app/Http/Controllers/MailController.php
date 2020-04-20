@@ -93,16 +93,41 @@ class MailController extends Controller
     	$workers = \Session::pull('workers');
     	$recipients = \Session::pull('recipients');
 
+        $errors = [];
+
     	foreach ($recipients as $recipient) 
     	{
-    		\Mail::to($recipient->worker_email)->send(new \App\Mail\SelectionEmail($message, $recipient, $workers, $events, $selections));
+            try 
+            {
+                \Mail::to($recipient->worker_email)->send(new \App\Mail\SelectionEmail($message, $recipient, $workers, $events, $selections));
+            } 
+            catch (Exception $e) 
+            {
+                array_push($errors, $recipient->worker_email);
+            }
     	}
+
     	foreach ($selections as $selection)
 		{
-			$selection->worker_selection_communicated = true;
-			$selection->timestamps = false;
-			$selection->save();
+            if(!in_array($selection->worker->worker_email, $errors))
+            {
+			    $selection->worker_selection_communicated = true;
+			    $selection->timestamps = false;
+			    $selection->save();
+            }
 		}
+
+        $errormsg = '';
+
+        foreach ($errors as $error)
+        {
+            $errormsg .= '\n' . $error;
+        }
+
+        if($errormsg != '')
+        {
+            \Session::put('err', $errormsg);
+        }
 
     	return redirect('/email')->with('msg', 'Emails successfully sent!');
     }
