@@ -28,10 +28,10 @@
             <td>{{$event->event_workers_needed}}</td>
             <td><button class="btn btn-primary" onclick="window.location.href = '/registrations/{{$event->event_id}}';">View</button></td>
             <td> <a href="{{ url('/event/edit/'.$event->event_id) }}"><button type="button" class="btn btn-primary" >Edit</button></a>
-            <form method ="post" class="btn btn-primary" action="{{ url('/event/delete/'.$event->event_id) }}">
+            <form method ="post"  action="{{ url('/event/delete/'.$event->event_id) }}" style="display: inline;">
             {{csrf_field()}}
             <input type= "hidden" name="_method" value="DELETE" />
-            <button type="submit" class="btn btn-primary">Delete</button>
+            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
             </form> </td>
         </tr>  
         @endforeach

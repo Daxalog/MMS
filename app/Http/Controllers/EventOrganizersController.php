@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\EventOrganizer;
-
+use App\Event;
 class EventOrganizersController extends Controller
 {
     //
     public function show(){
         $organizers = DB::table('event_organizers')->get();
+
         return view('organizers', ['organizers'=> $organizers]);
     }
 
@@ -18,8 +19,8 @@ class EventOrganizersController extends Controller
     {
         $organizer = EventOrganizer::where('event_organizer_id', $id)->first();
 
-        $upcomingEvents = \App\Event::where('organizer_id_for_event', $id)->where('event_date', '>', \DB::raw('NOW()'))->orderBy('event_date', 'asc')->get();
-        $pastEvents = \App\Event::where('organizer_id_for_event', $id)->where('event_date', '<=', \DB::raw('NOW()'))->orderBy('event_date', 'desc')->get();
+        $upcomingEvents = \App\Event::where('organizer_id_for_event', $id)->where('event_date', '>', DB::raw('NOW()'))->orderBy('event_date', 'asc')->get();
+        $pastEvents = \App\Event::where('organizer_id_for_event', $id)->where('event_date', '<=', DB::raw('NOW()'))->orderBy('event_date', 'desc')->get();
 
         return view('events_report', compact(['organizer', 'upcomingEvents', 'pastEvents']));
     }
@@ -75,9 +76,14 @@ class EventOrganizersController extends Controller
     }
 
     public function deleteOrganizer($id){
+        $organizer = EventOrganizer::find($id);
+        $events = Event::where('organizer_id_for_event', $id)->get();
 
-        $organizer = EventOrganizer::where('event_organizer_id',$id)->first();
         if($organizer != null){
+            foreach($events as $event){
+                DB::table('worker_event_registrations')->where('worker_event_registration_event_id', $event->worker_event_registration_event_id)->delete();
+                $event->delete();
+            }
             $organizer->delete();
             return redirect('/organizers/input');
         }
