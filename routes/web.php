@@ -22,7 +22,7 @@ Route::get('/events/input', 'EventController@showInput');
 Route::post('/event', 'EventController@storeEvent');
 Route::get('/event/edit/{event_id}', 'EventController@editEvent');
 Route::post('/event/update/{event_id}', 'EventController@updateEvent');
-Route::delete('/event/delete/{event_id}', 'EvenrController@deleteEvent');
+Route::delete('/event/delete/{event_id}', 'EventController@deleteEvent');
 
 Route::get('/workers', 'WorkerController@showInput');
 Route::get('/workers/registrations/{worker}', 'WorkerController@registrations');
