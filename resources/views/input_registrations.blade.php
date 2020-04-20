@@ -14,6 +14,7 @@
 	          <th>Event Date</th>
 	          <th>Original or Revised Registration</th>
 	          <th>Registration Date</th>
+	          <th>Comments</th>
 	          <th>Selected</th>
 	       </tr>
 	    </thead>
@@ -27,6 +28,7 @@
 	            <td>{{$regis->event->event_date}}</td>
 	            <td>{{$regis->revised_registration == 'o' ? 'Original' : 'Revised'}} Registration</td>
 	            <td>{{$regis->worker_event_registration_date}}</td>
+	            <td>{{$regis->worker_event_registration_comments}}</td>
 	            <td>{{$regis->worker_selection_status == 's' ? 'Selected' : 'Not Selected'}}</td>
 	        </tr>  
 	        @endforeach

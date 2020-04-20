@@ -44,7 +44,7 @@ class EventController extends Controller
             'eventName' => 'required|max:75',
             'eventDate' => 'required',
             'eventTrack' => 'required|max:45',
-            'event_workers_needed' => 'max:11',
+            'event_workers_needed' => 'numeric',
             
         ]);
 
@@ -98,7 +98,7 @@ class EventController extends Controller
             $event->delete();
             return redirect('/events/input');
         }
-        return redirect('/events/input');
+        return redirect('/events');
 
     }
 }

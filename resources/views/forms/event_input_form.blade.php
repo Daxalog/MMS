@@ -17,7 +17,7 @@
 
     <div class="form-group">
         <label>Workers Needed</label>
-        <input type="text" name="'event_workers_needed" class="form-control" required/>
+        <input type="text" name="event_workers_needed" class="form-control" required/>
     </div>
 
     <div class="form-group">

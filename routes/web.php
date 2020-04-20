@@ -34,7 +34,7 @@ Route::patch('/worker/update/{worker_id}', 'WorkerController@updateWorker');
 Route::delete('/worker/delete/{worker_id}', 'WorkerController@deleteWorker');
 
 Route::get('/organizers', 'EventOrganizersController@show');
-Route::get('/organizers/{organizer}', 'EventOrganizersController@showEvents');
+Route::get('/organizers/events/{organizer}', 'EventOrganizersController@showEvents');
 Route::get('/organizers/input', 'EventOrganizersController@showInput');
 Route::post('/organizer', 'EventOrganizersController@storeOrganizer');
 Route::get('/organizer/edit/{event_organizer_id}', 'EventOrganizersController@editOrganizer');
