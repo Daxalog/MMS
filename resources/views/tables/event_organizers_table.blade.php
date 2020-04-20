@@ -22,7 +22,7 @@
             <form method ="post" action="{{ url('/organizer/delete/'.$organizer->event_organizer_id) }}" style="display: inline;">
             {{csrf_field()}}
             <input type= "hidden" name="_method" value="DELETE" />
-            <button type="submit"  class="btn btn-danger">Delete</button>
+            <button type="submit"  class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
             </form> </td>
             <td><button class="btn btn-primary" onclick="window.location.href = '/organizers/{{$organizer->event_organizer_id}}';">View</button></td>
         </tr>  

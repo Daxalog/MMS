@@ -31,7 +31,7 @@
             <form method ="post"  action="{{ url('/event/delete/'.$event->event_id) }}" style="display: inline;">
             {{csrf_field()}}
             <input type= "hidden" name="_method" value="DELETE" />
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
             </form> </td>
         </tr>  
         @endforeach
