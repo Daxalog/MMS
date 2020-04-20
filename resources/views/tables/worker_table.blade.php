@@ -17,10 +17,10 @@
             <td>{{$worker->worker_last_name}}</td>
             <td>{{$worker->worker_email}}</td>
             <td> <a href="{{ url('/worker/edit/'.$worker->worker_id) }}"><button type="button" class="btn btn-primary" >Edit</button></a>
-            <form method ="post" class="btn btn-primary" action="{{ url('/worker/delete/'.$worker->worker_id) }}">
+            <form method ="post" action="{{ url('/worker/delete/'.$worker->worker_id) }}" style="display: inline;">
             {{csrf_field()}}
             <input type= "hidden" name="_method" value="DELETE" />
-            <button type="submit" class="btn btn-primary">Delete</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
             </form> </td>
             <td><button class="btn btn-primary" onclick="window.location.href = 'workers/registrations/{{$worker->worker_id}}';">View</button></td>
         </tr>  
