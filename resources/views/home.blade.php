@@ -1,9 +1,9 @@
 @extends('layouts/layout')
 @section('content')
 
-<div class="col-md-6 card">
+
 		    <h4>Upcoming Events</h4>
-		    <table class="table">
+		    <table class="table table-bordered">
 		    	<tr>
 		    		<th>Event ID</th>
 		    		<th>Event Name</th>
@@ -23,5 +23,5 @@
 		       		</tr>
 		    	@endforeach
 		    </table>
-		</div>
+		
 @endsection
