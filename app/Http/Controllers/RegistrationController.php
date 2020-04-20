@@ -51,13 +51,6 @@ class RegistrationController extends Controller
         return redirect('/registrations/input');
     }
 
-    public function editEvent($id){
-
-        $event = event::find($id);
-        $organizers = DB::table('event_organizers')->get();
-        return view('edit_events', compact('event', 'id','organizers', ['organizers'=> $organizers]));
-    }
-
     public function summary()
     {
         $workers = \App\Worker::orderBy('worker_first_name', 'asc')->get();

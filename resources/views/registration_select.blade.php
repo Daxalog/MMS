@@ -18,6 +18,7 @@
 		          <th>Worker Email</th>
 		          <th>Original or Revised Registration</th>
 		          <th>Registration Date</th>
+		          <th>Comments</th>
 		          <th>Selected</th>
 		       </tr>
 		    </thead>
@@ -29,6 +30,7 @@
 		            <td>{{$regis->worker->worker_email}}</td>
 		            <td>{{$regis->revised_registration == 'o' ? 'Original' : 'Revised'}} Registration</td>
 		            <td>{{$regis->worker_event_registration_date}}</td>
+		            <td>{{$regis->worker_event_registration_comments}}</td>
 		            <td><input type="checkbox" name="{{ $regis->worker_event_registration_id }}" {{$regis->worker_selection_status == 's' ? 'checked' : ''}}></td>
 		        </tr>  
 		        @endforeach
