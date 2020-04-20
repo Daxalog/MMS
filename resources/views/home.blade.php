@@ -9,9 +9,9 @@
 		    		<th>Event Name</th>
 		    		<th>Event Date</th>
 		    		<th>Event Track</th>
-                    <th>Workers Required<th>
-                    <th>Workers Registered<th>
-                    <th>Selection Email Sent?<th>
+                    <th>Workers Required</th>
+                    <th>Workers Registered</th>
+                    <th>Selection Email Sent?</th>
 		    	</tr>
                 @foreach($upcomingEvents as $event)
 		    		<tr>
@@ -20,6 +20,8 @@
 		    			<td>{{ $event->event_date }}</td>
 		    			<td><a href="/events/track/{{$event->event_track}}">{{$event->event_track}}</a></td>
                         <td>{{ $event->event_workers_needed }}</td>
+                        <td>{{ count($event->registrations) }}</td>
+                        <td>{{ $event->worker_selection_communicated}}</td>
 		       		</tr>
 		    	@endforeach
 		    </table>
